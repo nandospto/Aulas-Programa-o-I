@@ -8,6 +8,7 @@ int main()
     char nome[50];
     int especialidade, idade, experiencia;
     float salario;
+    float adicional;
     char continuar;
 
     do{
@@ -18,7 +19,7 @@ int main()
     printf("================================================\n\n");
     
     printf("Digite o nome do funcionário: ");
-    scanf("%s", nome);
+    scanf(" %[^\n]s", nome);
     printf("Digite a especialidade do funcionário (1-pedreiro, 2-pintor, 3-hidráulica, 4-eletricista): ");
     scanf("%d", &especialidade);
     printf("Digite a idade do funcionário: ");
@@ -44,7 +45,7 @@ int main()
     
     if(experiencia > 0) salario += experiencia * 70.00; // Adicional de R$ 70,00 por ano de experiência
 
-    if(idade > 45) salario *= 1.08; // Adicional de 8% para funcionários com mais de 45 anos
+    if(idade > 45) {adicional = salario * 0.08; salario *= 1.08;} // Adicional de 8% para funcionários com mais de 45 anos
 
     // Resultados
 
@@ -53,11 +54,10 @@ int main()
     printf("Salário do Funcionário %s \n", nome);
     printf("Valor Total: R$ %.2f\n", salario);
     printf("Recebeu R$ %.2f pela experiência.\n", experiencia * 70.00);
-    if(idade > 45) printf("Recebeu adicional de R$ %.2f por ter mais de 45 anos.\n", salario * 0.08);
+    if(idade > 45) printf("Recebeu adicional de R$ %.2f por ter mais de 45 anos.\n", adicional);
     printf("================================================\n\n");
 
     printf("Deseja calcular o salário de outro funcionário? (s/n): ");
-    scanf("%c", &continuar);
-    system("pause");
+    scanf(" %c", &continuar);
     } while (continuar == 's' || continuar == 'S');
 }
