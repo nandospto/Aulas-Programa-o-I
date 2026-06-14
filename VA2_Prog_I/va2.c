@@ -33,7 +33,7 @@ struct aluno
 {
     char nome[50];
     char respostas[5];
-    int nota;
+    float nota;
 };
 
 struct aluno turma[100];
@@ -49,7 +49,6 @@ void tela_cadastro_gabarito(void);
 void tela_cadastro_respostas(void);
 void tela_listagem_geral_notas(void);
 void tela_relatorio_estatistico(void);
-
 
 int main(void)
 {
@@ -132,7 +131,7 @@ void tela_cadastro_respostas(void)
     {
         system("cls");
         printf("Escola Legal - Correção de Provas\n\n\n");
-        printf("Cadastrar Gabarito\n");
+        printf("Cadastrar Rspostas da Turma\n");
 
         printf("Nome do aluno: ");
         scanf(" %[^\n]", &turma[totalalunos].nome);
@@ -149,13 +148,13 @@ void tela_cadastro_respostas(void)
         scanf(" %c", &turma[totalalunos].respostas[4]);
 
         int i;
-        turma[totalalunos].nota = 0;
+        turma[totalalunos].nota = 0.0f;
 
         for (i = 0; i < 5; i++)
         {
             if (turma[totalalunos].respostas[i] == gabarito[i])
             {
-                turma[totalalunos].nota += 2;
+                turma[totalalunos].nota += 2.0f;
             }
             else
             {
@@ -177,13 +176,14 @@ void tela_cadastro_respostas(void)
 
 void tela_listagem_geral_notas(void)
 {
+    int i;
+    
     system("cls");
     printf("Escola Legal - Correção de provas\n\n\n");
     printf("Listagem geral de notas\n\n");
-    printf(" Nome\t\t\t Respostas\t\t Nota\n");
+    printf("Nome\t\t\t R1  R2  R3  R4  R5\t Nota\n");
     printf("-------------------------------------------------------------\n");
 
-    int i;
 
     for (i = 0; i < totalalunos; i++)
     {
@@ -191,9 +191,9 @@ void tela_listagem_geral_notas(void)
         int j;
         for (j = 0; j < 5; j++)
         {
-            printf(" %c ", turma[i].respostas[j]);
+            printf(" %c  ", turma[i].respostas[j]);
         }
-        printf("\t\t %d\n", turma[i].nota);
+        printf("\t %0.1f\n", turma[i].nota);
     }
 
     printf("\n\nTecle enter para retornar ao menu\n");
