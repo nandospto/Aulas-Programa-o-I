@@ -44,20 +44,21 @@ int questaoerrada = 0;
 
 char gabarito[5] = {' ', ' ', ' ', ' ', ' '};
 
-void telainicial();
-void tela_cadastro_gabarito();
-void tela_cadastro_respostas();
-void tela_listagem_geral_notas();
-void tela_relatorio_estatistico();
+void telainicial(void);
+void tela_cadastro_gabarito(void);
+void tela_cadastro_respostas(void);
+void tela_listagem_geral_notas(void);
+void tela_relatorio_estatistico(void);
 
-int main()
+
+int main(void)
 {
     setlocale(LC_ALL, "Portuguese");
     telainicial();
     return 0;
 }
 
-void telainicial()
+void telainicial(void)
 {
     int opcao;
 
@@ -100,7 +101,7 @@ void telainicial()
     } while (opcao != 0);
 }
 
-void tela_cadastro_gabarito()
+void tela_cadastro_gabarito(void)
 {
     system("cls");
 
@@ -119,11 +120,11 @@ void tela_cadastro_gabarito()
     scanf(" %c", &gabarito[4]);
 
     printf("\n\nGabarito cadastrado com sucesso!\n");
-    printf("Tecle enter para retornar ao menu de opções");
+    printf("Tecle enter para retornar ao menu de opções\n");
     system("pause");
 }
 
-void tela_cadastro_respostas()
+void tela_cadastro_respostas(void)
 {
     int continuar = 1;
 
@@ -174,7 +175,7 @@ void tela_cadastro_respostas()
     } while (continuar == 1);
 }
 
-void tela_listagem_geral_notas()
+void tela_listagem_geral_notas(void)
 {
     system("cls");
     printf("Escola Legal - Correção de provas\n\n\n");
@@ -186,7 +187,7 @@ void tela_listagem_geral_notas()
 
     for (i = 0; i < totalalunos; i++)
     {
-        printf(" %s\t\t\t", turma[i].nome);
+        printf(" %-20s\t", turma[i].nome);
         int j;
         for (j = 0; j < 5; j++)
         {
@@ -195,11 +196,11 @@ void tela_listagem_geral_notas()
         printf("\t\t %d\n", turma[i].nota);
     }
 
-    printf("\n\nTecle enter para retornar ao menu");
+    printf("\n\nTecle enter para retornar ao menu\n");
     system("pause");
 }
 
-void tela_relatorio_estatistico()
+void tela_relatorio_estatistico(void)
 {
     int reprovados = 0;
     int notamaisalta = 0;
@@ -257,6 +258,6 @@ void tela_relatorio_estatistico()
     printf("Nota mais baixa: %d\n", notamaisbaixa);
     printf("Qual questão os alunos erraram mais: %d\n", questaoerrada + 1);
     printf("\n-------------------------------------------------------------\n");
-    printf("Tecle enter para voltar ao menu");
+    printf("Tecle enter para voltar ao menu\n");
     system("pause");
 }
