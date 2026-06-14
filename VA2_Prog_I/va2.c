@@ -1,6 +1,12 @@
 // Aluno: Fernando Antonio Soares de Almeida
 // Polo: João Pessoa - PB
 
+// Compilador
+// gcc.exe (tdm64-1) 9.2.0
+// Copyright (C) 2019 Free Software Foundation, Inc.
+// This is free software; see the source for copying conditions.  There is NO
+// warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
 // Segunda VA de Programação I
 
 // 1. (10,0) Faça um programa modularizado, em linguagem C, para corrigir uma prova de múltipla
@@ -18,12 +24,6 @@
 // desempenho da turma.
 // e) Relatório estatístico: Apresentar os dados solicitados conforme tela detalhada na página a
 // seguir.
-
-// Compilador
-// gcc.exe (tdm64-1) 9.2.0
-// Copyright (C) 2019 Free Software Foundation, Inc.
-// This is free software; see the source for copying conditions.  There is NO
-// warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
 #include <stdio.h>
 #include <locale.h>
